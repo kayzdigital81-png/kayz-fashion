@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover premium streetwear and modern fashion at KAYZ Fashion.">
+  <meta name="theme-color" content="#111111">
+  <title>KAYZ Fashion | Style That Speaks</title>
+
+  <style>
+    :root {
+      --black: #111111;
+      --dark: #191919;
+      --cream: #f5f0e8;
+      --gold: #c6a56b;
+      --white: #ffffff;
+      --grey: #777777;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Arial, sans-serif; background: var(--cream); color: var(--black); }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; object-fit: cover; }
+
+    .announcement {
+      background: var(--black); color: white; text-align: center;
+      padding: 10px; font-size: 11px; letter-spacing: 2px;
+    }
+
+    header {
+      background: var(--cream); padding: 20px 7%; display: flex;
+      align-items: center; justify-content: space-between; position: sticky;
+      top: 0; z-index: 100; border-bottom: 1px solid #e3ddd2;
+    }
+    .logo { font-size: 23px; font-weight: 900; letter-spacing: 2px; }
+    .logo span { color: var(--gold); }
+    nav { display: flex; align-items: center; gap: 25px; }
+    nav a { font-size: 13px; font-weight: 600; }
+    nav a:hover { color: #a17d42; }
+    .header-actions { display: flex; align-items: center; gap: 15px; }
+    .icon-btn {
+      border: none; background: transparent; font-size: 20px; position: relative;
+    }
+    .cart-count {
+      position: absolute; top: -9px; right: -10px; background: var(--gold);
+      color: black; border-radius: 50%; font-size: 10px; padding: 3px 6px;
+    }
+
+    .hero {
+      min-height: 570px;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.75), rgba(0,0,0,.1)),
+        url("https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=1600") center/cover;
+      display: flex; align-items: center; padding: 70px 9%; color: white;
+    }
+    .hero-content { max-width: 600px; }
+    .eyebrow { color: var(--gold); letter-spacing: 4px; font-size: 12px; margin-bottom: 20px; }
+    .hero h1 { font-size: clamp(45px, 9vw, 85px); line-height: 1.05; margin-bottom: 22px; }
+    .hero h1 span { color: var(--gold); }
+    .hero p { color: #eeeeee; line-height: 1.8; max-width: 440px; margin-bottom: 30px; }
+    .primary-btn {
+      display: inline-block; background: var(--gold); color: #111; border: none;
+      padding: 16px 25px; font-weight: bold; letter-spacing: 1px; font-size: 12px;
+      transition: .3s;
+    }
+    .primary-btn:hover { background: white; transform: translateY(-3px); }
+
+    .section { padding: 85px 7%; }
+    .section-heading { text-align: center; margin-bottom: 40px; }
+    .section-heading .eyebrow { margin-bottom: 12px; }
+    .section-heading h2 { font-size: clamp(28px, 5vw, 42px); }
+    .section-heading p { color: var(--grey); margin-top: 12px; line-height: 1.7; }
+
+    .benefits {
+      display: grid; grid-template-columns: repeat(3, 1fr); background: white;
+      padding: 30px 7%; gap: 20px; text-align: center;
+    }
+    .benefit h3 { font-size: 14px; margin-bottom: 8px; }
+    .benefit p { color: var(--grey); font-size: 12px; line-height: 1.6; }
+
+    .shop { background: var(--cream); }
+    .shop-controls {
+      display: flex; flex-wrap: wrap; justify-content: space-between;
+      align-items: center; gap: 15px; margin-bottom: 30px;
+    }
+    .filters { display: flex; gap: 9px; flex-wrap: wrap; }
+    .filter-btn {
+      background: transparent; border: 1px solid #ccc2b3; padding: 10px 15px;
+      font-size: 11px;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--black); color: white; border-color: var(--black);
+    }
+    .search {
+      padding: 12px; border: 1px solid #ccc2b3; background: white;
+      outline: none; width: 190px;
+    }
+    .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+    .product-card { background: white; overflow: hidden; transition: .3s; }
+    .product-card:hover { transform: translateY(-5px); }
+    .product-image { position: relative; height: 280px; overflow: hidden; background: #e9e3d9; }
+    .product-image img { height: 100%; transition: transform .5s; }
+    .product-card:hover .product-image img { transform: scale(1.05); }
+    .product-tag {
+      position: absolute; top: 12px; left: 12px; background: var(--black);
+      color: white; font-size: 9px; padding: 7px 10px; letter-spacing: 1px;
+    }
+    .product-info { padding: 17px; }
+    .product-info h3 { font-size: 14px; margin-bottom: 9px; }
+    .product-category {
+      color: var(--grey); font-size: 10px; text-transform: uppercase;
+      letter-spacing: 1px; margin-bottom: 12px;
+    }
+    .product-price { font-weight: bold; font-size: 15px; margin-bottom: 14px; }
+    .add-btn {
+      width: 100%; padding: 12px; background: var(--black); color: white;
+      border: none; font-size: 11px; font-weight: bold; transition: .3s;
+    }
+    .add-btn:hover { background: var(--gold); color: black; }
+    .no-results { grid-column: 1/-1; text-align: center; padding: 35px; color: var(--grey); }
+
+    .collection-banner { background: var(--black); color: white; text-align: center; padding: 85px 20px; }
+    .collection-banner h2 { font-size: clamp(30px, 6vw, 48px); margin-bottom: 15px; }
+    .collection-banner h2 span { color: var(--gold); }
+    .collection-banner p { color: #ccc; margin-bottom: 25px; line-height: 1.7; }
+
+    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+    .about-image img { height: 430px; }
+    .about-content h2 { font-size: 38px; margin-bottom: 20px; }
+    .about-content h2 span { color: var(--gold); }
+    .about-content p { color: #666; line-height: 1.9; margin-bottom: 17px; }
+
+    .newsletter { background: #e9e1d4; text-align: center; padding: 70px 20px; }
+    .newsletter h2 { font-size: 30px; margin-bottom: 12px; }
+    .newsletter p { color: #666; margin-bottom: 20px; }
+    .newsletter form {
+      display: flex; justify-content: center; max-width: 440px; margin: auto;
+    }
+    .newsletter input {
+      flex: 1; min-width: 0; padding: 14px; border: 1px solid #ccc; outline: none;
+    }
+    .newsletter button {
+      background: var(--black); color: white; padding: 14px; border: none; font-size: 11px;
+    }
+
+    footer { background: var(--black); color: white; padding: 60px 7% 20px; }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 35px; margin-bottom: 40px;
+    }
+    .footer-grid h3 { color: var(--gold); margin-bottom: 17px; font-size: 15px; }
+    .footer-grid p, .footer-grid a { color: #bbb; font-size: 13px; line-height: 2; }
+    .footer-grid a { display: block; }
+    .footer-bottom {
+      border-top: 1px solid #333; padding-top: 20px; text-align: center;
+      color: #999; font-size: 12px;
+    }
+
+    .cart-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,.55);
+      z-index: 200; display: none;
+    }
+    .cart-overlay.show { display: block; }
+    .cart-panel {
+      position: absolute; right: 0; top: 0; height: 100%;
+      width: min(420px, 90%); background: white; padding: 25px; overflow-y: auto;
+    }
+    .cart-header {
+      display: flex; justify-content: space-between; align-items: center;
+      border-bottom: 1px solid #ddd; padding-bottom: 18px;
+    }
+    .close-btn { border: none; background: none; font-size: 25px; }
+    .cart-item { display: flex; gap: 13px; padding: 17px 0; border-bottom: 1px solid #eee; }
+    .cart-item img { width: 75px; height: 85px; }
+    .cart-item-info { flex: 1; }
+    .cart-item-info h4 { font-size: 13px; margin-bottom: 8px; }
+    .cart-item-info p { font-size: 12px; color: #666; margin-bottom: 9px; }
+    .quantity-controls { display: flex; align-items: center; gap: 12px; }
+    .quantity-controls button { border: 1px solid #ccc; background: white; padding: 3px 9px; }
+    .remove-btn { color: #a33; background: none; border: none; font-size: 11px; margin-top: 7px; }
+    .cart-total { display: flex; justify-content: space-between; padding: 22px 0; font-weight: bold; }
+    .checkout-btn {
+      width: 100%; padding: 16px; background: #25D366; color: white;
+      border: none; font-weight: bold; margin-bottom: 12px;
+    }
+    .clear-cart { width: 100%; padding: 12px; border: 1px solid #ddd; background: white; }
+    .empty-cart { padding: 45px 10px; text-align: center; color: #777; }
+
+    @media (max-width: 850px) {
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 13px; }
+      .product-image { height: 220px; }
+      .about { gap: 25px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1/-1; }
+    }
+    @media (max-width: 600px) {
+      header { padding: 16px 5%; flex-wrap: wrap; gap: 15px; }
+      .logo { font-size: 19px; }
+      nav { order: 3; width: 100%; justify-content: space-between; gap: 10px; }
+      nav a { font-size: 11px; }
+      .hero { min-height: 520px; padding: 55px 7%; background-position: 58% center; }
+      .hero h1 { font-size: 49px; }
+      .section { padding: 65px 5%; }
+      .benefits { grid-template-columns: 1fr; gap: 25px; }
+      .product-image { height: 185px; }
+      .product-info { padding: 12px; }
+      .product-info h3 { font-size: 12px; }
+      .product-price { font-size: 13px; }
+      .shop-controls { align-items: stretch; }
+      .filters { width: 100%; }
+      .search { width: 100%; }
+      .about { grid-template-columns: 1fr; }
+      .about-image img { height: 330px; }
+      .about-content h2 { font-size: 32px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .newsletter form { flex-direction: column; gap: 10px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="announcement">DISCOVER YOUR STYLE • KAYZ FASHION</div>
+
+  <header>
+    <a href="#home" class="logo">KAYZ<span>.</span> FASHION</a>
+
+    <nav aria-label="Main navigation">
+      <a href="#home">HOME</a>
+      <a href="#shop">SHOP</a>
+      <a href="#about">ABOUT</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" type="button" data-action="open-cart" aria-label="Open shopping bag">
+        ♡ <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="eyebrow">NEW COLLECTION 2026</div>
+        <h1>STYLE THAT<br><span>SPEAKS.</span></h1>
+        <p>Discover your style. Express your identity. Wear your confidence with KAYZ Fashion.</p>
+        <a href="#shop" class="primary-btn">EXPLORE COLLECTION →</a>
+      </div>
+    </section>
+
+    <section class="benefits" aria-label="Shopping benefits">
+      <div class="benefit">
+        <h3>✦ PREMIUM STYLE</h3>
+        <p>Thoughtfully selected fashion pieces.</p>
+      </div>
+      <div class="benefit">
+        <h3>✦ EASY ORDERING</h3>
+        <p>Simple ordering through WhatsApp.</p>
+      </div>
+      <div class="benefit">
+        <h3>✦ PERSONAL STYLE</h3>
+        <p>Fashion that expresses your identity.</p>
+      </div>
+    </section>
+
+    <section class="section shop" id="shop">
+      <div class="section-heading">
+        <div class="eyebrow">THE COLLECTION</div>
+        <h2>Shop Our Collection</h2>
+        <p>Explore our latest streetwear essentials.</p>
+      </div>
+
+      <div class="shop-controls">
+        <div class="filters" aria-label="Filter products by category">
+          <button class="filter-btn active" type="button" data-category="All">All</button>
+          <button class="filter-btn" type="button" data-category="T-Shirts">T-Shirts</button>
+          <button class="filter-btn" type="button" data-category="Hoodies">Hoodies</button>
+          <button class="filter-btn" type="button" data-category="Trousers">Trousers</button>
+        </div>
+
+        <input
+          class="search"
+          id="searchInput"
+          type="search"
+          placeholder="Search products..."
+          aria-label="Search products">
+      </div>
+
+      <div class="product-grid" id="productGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="collection-banner">
+      <div class="eyebrow">YOUR STYLE. YOUR IDENTITY.</div>
+      <h2>BE <span>UNAPOLOGETIC.</span></h2>
+      <p>Wear what makes you feel confident.</p>
+      <a href="#shop" class="primary-btn">SHOP NOW</a>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="about-image">
+        <img
+          src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=900"
+          alt="Fashion editorial collection"
+          loading="lazy">
+      </div>
+
+      <div class="about-content">
+        <div class="eyebrow">OUR STORY</div>
+        <h2>Fashion Is More Than <span>Clothing.</span></h2>
+        <p>KAYZ Fashion is a contemporary streetwear brand concept built around confidence, individuality and self-expression.</p>
+        <p>We believe style is personal. Every outfit is an opportunity to express who you are without saying a word.</p>
+        <a href="#shop" class="primary-btn">DISCOVER THE COLLECTION</a>
+      </div>
+    </section>
+
+    <section class="newsletter" id="contact">
+      <div class="eyebrow">STAY CONNECTED</div>
+      <h2>Join The KAYZ Community</h2>
+      <p>Get updates about new collections and style inspiration.</p>
+
+      <form id="newsletterForm">
+        <input
+          type="email"
+          id="newsletterEmail"
+          placeholder="Enter your email"
+          aria-label="Email address"
+          required>
+        <button type="submit">JOIN US</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h2 class="logo">KAYZ<span>.</span> FASHION</h2>
+        <p>Style that speaks. Fashion that expresses. Discover your identity with KAYZ Fashion.</p>
+      </div>
+
+      <div>
+        <h3>EXPLORE</h3>
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#about">Our Story</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div>
+        <h3>CONTACT</h3>
+        <a href="https://wa.me/2348081243846" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="mailto:kayzdigital81@gmail.com">Email</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 KAYZ Fashion. Demonstration store.
+      <br><br>
+      Designed by KAYZ Digital.
+    </div>
+  </footer>
+
+  <div class="cart-overlay" id="cartOverlay" aria-hidden="true">
+    <section class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+      <div class="cart-header">
+        <h2 id="cartTitle">YOUR BAG</h2>
+        <button class="close-btn" type="button" data-action="close-cart" aria-label="Close shopping bag">×</button>
+      </div>
+
+      <div id="cartItems"></div>
+
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">₦0</span>
+      </div>
+
+      <button class="checkout-btn" type="button" data-action="checkout">ORDER THROUGH WHATSAPP</button>
+      <button class="clear-cart" type="button" data-action="clear-cart">CLEAR BAG</button>
+    </section>
+  </div>
+
+  <script>
+    "use strict";
+
+    /**
+     * @typedef {Object} Product
+     * @property {number} id
+     * @property {string} name
+     * @property {string} category
+     * @property {number} price
+     * @property {string} tag
+     * @property {string} image
+     */
+
+    /**
+     * @typedef {Product & {quantity: number}} CartItem
+     */
+
+    /** @type {Product[]} */
+    const products = [
+      {
+        id: 1,
+        name: "Classic Oversized Tee",
+        category: "T-Shirts",
+        price: 12000,
+        tag: "BESTSELLER",
+        image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=700"
+      },
+      {
+        id: 2,
+        name: "Essential White Tee",
+        category: "T-Shirts",
+        price: 10000,
+        tag: "NEW",
+        image: "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=700"
+      },
+      {
+        id: 3,
+        name: "Premium Black Hoodie",
+        category: "Hoodies",
+        price: 28000,
+        tag: "POPULAR",
+        image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=700"
+      },
+      {
+        id: 4,
+        name: "Urban Grey Hoodie",
+        category: "Hoodies",
+        price: 30000,
+        tag: "NEW",
+        image: "https://images.unsplash.com/photo-1578681994506-b8f463449011?w=700"
+      },
+      {
+        id: 5,
+        name: "Streetwear Cargo",
+        category: "Trousers",
+        price: 22000,
+        tag: "TRENDING",
+        image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=700"
+      },
+      {
+        id: 6,
+        name: "Classic Casual Trousers",
+        category: "Trousers",
+        price: 18000,
+        tag: "ESSENTIAL",
+        image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=700"
+      },
+      {
+        id: 7,
+        name: "Urban Graphic Tee",
+        category: "T-Shirts",
+        price: 14000,
+        tag: "NEW",
+        image: "https://images.unsplash.com/photo-1527719327859-c6ce80353573?w=700"
+      },
+      {
+        id: 8,
+        name: "Signature Street Hoodie",
+        category: "Hoodies",
+        price: 32000,
+        tag: "LIMITED",
+        image: "https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=700"
+      }
+    ];
+
+    /** @type {CartItem[]} */
+    let cart = [];
+
+    /** @type {string} */
+    let activeCategory = "All";
+
+    /**
+     * Format a number as Nigerian naira.
+     * @param {number} amount
+     * @returns {string}
+     */
+    function money(amount) {
+      return "₦" + amount.toLocaleString("en-NG");
+    }
+
+    /**
+     * Render the product catalogue using the active category and search term.
+     * @returns {void}
+     */
+    function renderProducts() {
+      const grid = document.getElementById("productGrid");
+      const searchInput = document.getElementById("searchInput");
+
+      if (!(grid instanceof HTMLElement) || !(searchInput instanceof HTMLInputElement)) {
+        return;
+      }
+
+      const searchTerm = searchInput.value.trim().toLowerCase();
+
+      const filteredProducts = products.filter((product) => {
+        const matchesCategory =
+          activeCategory === "All" || product.category === activeCategory;
+
+        const matchesSearch =
+          product.name.toLowerCase().includes(searchTerm) ||
+          product.category.toLowerCase().includes(searchTerm);
+
+        return matchesCategory && matchesSearch;
+      });
+
+      if (filteredProducts.length === 0) {
+        grid.innerHTML =
+          '<div class="no-results">No products found. Try another search.</div>';
+        return;
+      }
+
+      grid.innerHTML = filteredProducts.map((product) => `
+        <article class="product-card">
+          <div class="product-image">
+            <img src="${product.image}" alt="${product.name}" loading="lazy">
+            <span class="product-tag">${product.tag}</span>
+          </div>
+          <div class="product-info">
+            <div class="product-category">${product.category}</div>
+            <h3>${product.name}</h3>
+            <div class="product-price">${money(product.price)}</div>
+            <button
+              class="add-btn"
+              type="button"
+              data-action="add-to-cart"
+              data-id="${product.id}">
+              ADD TO BAG +
+            </button>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    /**
+     * Apply a product category filter.
+     * @param {string} category
+     * @param {HTMLButtonElement} selectedButton
+     * @returns {void}
+     */
+    function filterProducts(category, selectedButton) {
+      activeCategory = category;
+
+      document.querySelectorAll(".filter-btn").forEach((button) => {
+        button.classList.remove("active");
+      });
+
+      selectedButton.classList.add("active");
+      renderProducts();
+    }
+
+    /**
+     * Add one product to the cart.
+     * @param {number} productId
+     * @returns {void}
+     */
+    function addToCart(productId) {
+      const product = products.find((item) => item.id === productId);
+
+      if (!product) return;
+
+      const existingItem = cart.find((item) => item.id === productId);
+
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({ ...product, quantity: 1 });
+      }
+
+      updateCart();
+    }
+
+    /**
+     * Refresh the cart count, items and total.
+     * @returns {void}
+     */
+    function updateCart() {
+      const countElement = document.getElementById("cartCount");
+      const itemsContainer = document.getElementById("cartItems");
+      const totalElement = document.getElementById("cartTotal");
+
+      if (
+        !(countElement instanceof HTMLElement) ||
+        !(itemsContainer instanceof HTMLElement) ||
+        !(totalElement instanceof HTMLElement)
+      ) {
+        return;
+      }
+
+      const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+      countElement.textContent = String(itemCount);
+
+      if (cart.length === 0) {
+        itemsContainer.innerHTML =
+          '<div class="empty-cart">Your shopping bag is empty.</div>';
+      } else {
+        itemsContainer.innerHTML = cart.map((item) => `
+          <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}">
+            <div class="cart-item-info">
+              <h4>${item.name}</h4>
+              <p>${money(item.price)}</p>
+              <div class="quantity-controls">
+                <button
+                  type="button"
+                  data-action="change-quantity"
+                  data-id="${item.id}"
+                  data-amount="-1"
+                  aria-label="Decrease ${item.name} quantity">−</button>
+                <span>${item.quantity}</span>
+                <button
+                  type="button"
+                  data-action="change-quantity"
+                  data-id="${item.id}"
+                  data-amount="1"
+                  aria-label="Increase ${item.name} quantity">+</button>
+              </div>
+              <button
+                class="remove-btn"
+                type="button"
+                data-action="remove-item"
+                data-id="${item.id}">
+                REMOVE
+              </button>
+            </div>
+          </div>
+        `).join("");
+      }
+
+      const total = cart.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+      );
+
+      totalElement.textContent = money(total);
+    }
+
+    /**
+     * Increase or decrease an item's quantity.
+     * @param {number} productId
+     * @param {number} quantityChange
+     * @returns {void}
+     */
+    function changeQuantity(productId, quantityChange) {
+      const item = cart.find((cartItem) => cartItem.id === productId);
+
+      if (!item) return;
+
+      item.quantity += quantityChange;
+
+      if (item.quantity <= 0) {
+        cart = cart.filter((cartItem) => cartItem.id !== productId);
+      }
+
+      updateCart();
+    }
+
+    /**
+     * Remove one product from the cart.
+     * @param {number} productId
+     * @returns {void}
+     */
+    function removeItem(productId) {
+      cart = cart.filter((item) => item.id !== productId);
+      updateCart();
+    }
+
+    /**
+     * Empty the shopping cart.
+     * @returns {void}
+     */
+    function clearCart() {
+      cart = [];
+      updateCart();
+    }
+
+    /**
+     * Open the cart drawer.
+     * @returns {void}
+     */
+    function openCart() {
+      const overlay = document.getElementById("cartOverlay");
+
+      if (!(overlay instanceof HTMLElement)) return;
+
+      overlay.classList.add("show");
+      overlay.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    /**
+     * Close the cart drawer.
+     * @returns {void}
+     */
+    function closeCart() {
+      const overlay = document.getElementById("cartOverlay");
+
+      if (!(overlay instanceof HTMLElement)) return;
+
+      overlay.classList.remove("show");
+      overlay.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    /**
+     * Build and open a WhatsApp order message.
+     * @returns {void}
+     */
+    function checkout() {
+      if (cart.length === 0) {
+        window.alert("Your shopping bag is empty.");
+        return;
+      }
+
+      let message = "Hello KAYZ Fashion! I would like to order:\n\n";
+
+      cart.forEach((item) => {
+        message +=
+          item.name +
+          " x " + item.quantity +
+          " = " + money(item.price * item.quantity) +
+          "\n";
+      });
+
+      const total = cart.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+      );
+
+      message += "\nTotal: " + money(total);
+      message += "\n\nPlease confirm availability and delivery details.";
+
+      const whatsappUrl =
+        "https://wa.me/2348081243846?text=" +
+        encodeURIComponent(message);
+
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    }
+
+    /**
+     * Handle the newsletter demonstration form.
+     * @param {HTMLFormElement} form
+     * @returns {void}
+     */
+    function subscribe(form) {
+      window.alert(
+        "Thank you for your interest! Newsletter registration is currently a demonstration feature."
+      );
+      form.reset();
+    }
+
+    /**
+     * Handle clicks through event delegation so dynamically rendered
+     * product and cart buttons work without inline event attributes.
+     */
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+
+      if (!(target instanceof Element)) return;
+
+      const button = target.closest("button");
+
+      if (!(button instanceof HTMLButtonElement)) return;
+
+      const category = button.dataset.category;
+
+      if (category) {
+        filterProducts(category, button);
+        return;
+      }
+
+      const action = button.dataset.action;
+      const productId = Number(button.dataset.id);
+
+      switch (action) {
+        case "open-cart":
+          openCart();
+          break;
+
+        case "close-cart":
+          closeCart();
+          break;
+
+        case "add-to-cart":
+          if (Number.isInteger(productId) && productId > 0) {
+            addToCart(productId);
+          }
+          break;
+
+        case "change-quantity": {
+          const quantityChange = Number(button.dataset.amount);
+
+          if (
+            Number.isInteger(productId) &&
+            productId > 0 &&
+            Number.isInteger(quantityChange)
+          ) {
+            changeQuantity(productId, quantityChange);
+          }
+          break;
+        }
+
+        case "remove-item":
+          if (Number.isInteger(productId) && productId > 0) {
+            removeItem(productId);
+          }
+          break;
+
+        case "clear-cart":
+          clearCart();
+          break;
+
+        case "checkout":
+          checkout();
+          break;
+
+        default:
+          break;
+      }
+    });
+
+    const searchInput = document.getElementById("searchInput");
+
+    if (searchInput instanceof HTMLInputElement) {
+      searchInput.addEventListener("input", () => {
+        renderProducts();
+      });
+    }
+
+    const cartOverlay = document.getElementById("cartOverlay");
+
+    if (cartOverlay instanceof HTMLElement) {
+      cartOverlay.addEventListener("click", (event) => {
+        if (event.target === cartOverlay) {
+          closeCart();
+        }
+      });
+    }
+
+    const newsletterForm = document.getElementById("newsletterForm");
+
+    if (newsletterForm instanceof HTMLFormElement) {
+      newsletterForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        subscribe(newsletterForm);
+      });
+    }
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeCart();
+      }
+    });
+
+    // Start the store.
+    renderProducts();
+    updateCart();
+  </script>
+</body>
+</html>
