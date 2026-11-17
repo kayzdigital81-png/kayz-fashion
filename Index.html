@@ -1,0 +1,795 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KAYZ Digital builds modern websites and AI solutions for growing businesses.">
+  <meta name="theme-color" content="#111827">
+
+<meta property="og:title"
+content="KAYZ Digital | We Build. You Grow.">
+
+<meta property="og:description"
+content="Modern websites, AI solutions and business automation for growing businesses.">
+
+<meta property="og:type" content="website">
+  <title>KAYZ Digital | We Build. You Grow.</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #111827;
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 7%;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #facc15;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+    }
+
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 7%;
+    }
+
+    .tag {
+      color: #facc15;
+      margin-bottom: 20px;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 8vw, 75px);
+      line-height: 1.1;
+      max-width: 750px;
+    }
+
+    h1 span {
+      color: #facc15;
+    }
+
+    .hero p {
+      color: #cbd5e1;
+      line-height: 1.8;
+      max-width: 500px;
+      margin: 25px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #facc15;
+      color: #111827;
+      padding: 15px 25px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      width: fit-content;
+    }
+
+    .services {
+      padding: 65px 7%;
+      background: #1f2937;
+    }
+
+    .services h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      padding: 25px;
+      background: #111827;
+      border: 1px solid #374151;
+      border-radius: 10px;
+    }
+
+    .card h3 {
+      color: #facc15;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #9ca3af;
+    }
+    
+.about {
+  padding: 80px 7%;
+  background: #111827;
+}
+
+.about h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.about h2 span {
+  color: #facc15;
+}
+
+.about p {
+  color: #cbd5e1;
+  line-height: 1.9;
+  max-width: 650px;
+}
+
+.about-tag {
+  color: #facc15;
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.portfolio {
+  padding: 80px 7%;
+  background: #1f2937;
+}
+
+.portfolio-tag {
+  color: #facc15;
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.portfolio h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.portfolio-intro {
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.project {
+  background: #111827;
+  border: 1px solid #374151;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.project-visual {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #273449;
+  font-size: 38px;
+}
+
+.project-info {
+  padding: 22px;
+}
+
+.project-info h3 {
+  color: #facc15;
+  margin-bottom: 10px;
+}
+
+.project-info p {
+  color: #cbd5e1;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.project-type {
+  display: inline-block;
+  margin-top: 15px;
+  color: #facc15;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+
+  header {
+    padding: 18px 5%;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .logo {
+    font-size: 19px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  nav a {
+    margin-left: 0;
+    font-size: 12px;
+  }
+
+}
+
+.contact {
+  padding: 80px 7%;
+  background: #111827;
+  text-align: center;
+}
+
+.contact-tag {
+  color: #facc15;
+  letter-spacing: 2px;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.contact h2 {
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+
+.contact h2 span {
+  color: #facc15;
+}
+
+.contact p {
+  color: #cbd5e1;
+  line-height: 1.8;
+  max-width: 500px;
+  margin: 0 auto 25px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.email-btn {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid #facc15;
+  color: #facc15;
+  padding: 15px 25px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact small {
+  display: block;
+  color: #9ca3af;
+  margin-top: 25px;
+}
+
+/* PREMIUM MOBILE NAVIGATION */
+
+@media (max-width: 600px) {
+
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 20px 6%;
+  }
+
+  .logo {
+    font-size: 22px;
+    white-space: nowrap;
+  }
+
+  nav {
+    display: flex;
+    width: 100%;
+    gap: 22px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 8px;
+  }
+
+  nav a {
+    white-space: nowrap;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  nav::-webkit-scrollbar {
+    display: none;
+  }
+
+}
+
+/* PORTFOLIO WEBSITE PREVIEWS */
+
+.project-visual {
+  height: 170px;
+  padding: 15px;
+  background: #273449;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mock-window {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 7px;
+  overflow: hidden;
+  color: #111827;
+}
+
+.mock-top {
+  height: 20px;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  gap: 4px;
+}
+
+.mock-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #64748b;
+}
+
+.mock-content {
+  padding: 12px;
+}
+
+.mock-title {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 7px;
+}
+
+.mock-line {
+  height: 5px;
+  background: #cbd5e1;
+  width: 80%;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+.mock-button {
+  display: inline-block;
+  background: #facc15;
+  padding: 6px 12px;
+  font-size: 8px;
+  margin-top: 8px;
+  border-radius: 3px;
+}
+
+.mock-products {
+  display: flex;
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.mock-product {
+  flex: 1;
+  height: 40px;
+  background: #e5e7eb;
+  border-radius: 4px;
+}
+
+.mock-chat {
+  background: #f1f5f9;
+  padding: 7px;
+  margin-top: 8px;
+  border-radius: 5px;
+  font-size: 9px;
+}
+
+.mock-chat.reply {
+  background: #fef3c7;
+}
+
+/* PROFESSIONAL FOOTER */
+
+footer {
+  background: #080e1b;
+  padding: 45px 7% 20px;
+  color: #cbd5e1;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin-bottom: 35px;
+}
+
+.footer-brand h2 {
+  color: white;
+  margin-bottom: 12px;
+}
+
+.footer-brand span {
+  color: #facc15;
+}
+
+.footer-brand p {
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.footer-links h3 {
+  color: #facc15;
+  margin-bottom: 15px;
+}
+
+.footer-links a {
+  display: block;
+  color: #cbd5e1;
+  text-decoration: none;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.footer-bottom {
+  border-top: 1px solid #374151;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: #9ca3af;
+}
+html {
+  scroll-behavior: smooth;
+}
+    .btn,
+.email-btn {
+  transition: 0.3s ease;
+}
+
+.btn:active,
+.email-btn:active {
+  transform: scale(0.96);
+  opacity: 0.85;
+}
+
+a:focus-visible {
+  outline: 2px solid #facc15;
+  outline-offset: 4px;
+}
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">KAYZ<span>.</span> DIGITAL</div>
+
+    <nav>
+  <a href="#home">Home</a>
+  <a href="#services">Services</a>
+  <a href="#about">About</a>
+  <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="tag">WEB DEVELOPMENT • AI • AUTOMATION</div>
+
+    <h1>
+      We Build.<br>
+      <span>You Grow.</span>
+    </h1>
+
+    <p>
+      We help businesses grow with modern websites,
+      intelligent AI solutions and smart digital automation.
+    </p>
+
+    <a href="#services" class="btn">Explore Our Services</a>
+  </section>
+
+  <section class="services" id="services">
+    <h2>What We Do</h2>
+
+    <div class="service-grid">
+
+      <div class="card">
+        <h3>Web Development</h3>
+        <p>
+          Professional, responsive websites
+          designed to make your business stand out.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>AI Solutions</h3>
+        <p>
+          Intelligent assistants that help businesses
+          communicate with customers.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Automation</h3>
+        <p>
+          Smart workflows that reduce repetitive
+          business tasks and save time.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+<section class="about" id="about">
+
+  <div class="about-tag">WHO WE ARE</div>
+
+  <h2>Building a <span>Smarter</span> Digital Future.</h2>
+
+  <p>
+    KAYZ Digital is a digital solutions agency
+    focused on helping businesses grow through
+    modern web development, artificial intelligence
+    and business automation.
+  </p>
+
+  <p>
+    We believe every business deserves access
+    to quality digital solutions that make work
+    easier and create new opportunities.
+  </p>
+
+</section>
+
+<section class="portfolio" id="portfolio">
+
+  <div class="portfolio-tag">OUR WORK</div>
+
+  <h2>Projects We've <span>Designed.</span></h2>
+
+  <p class="portfolio-intro">
+    Explore our demonstration projects and discover
+    what KAYZ Digital can create for your business.
+  </p>
+
+  <div class="project-grid">
+
+    <div class="project">
+      
+<div class="project-visual">
+  <div class="mock-window">
+    <div class="mock-top">
+      <span class="mock-dot"></span>
+      <span class="mock-dot"></span>
+      <span class="mock-dot"></span>
+    </div>
+
+    <div class="mock-content">
+      <div class="mock-title">KAYZ FASHION</div>
+      <div class="mock-line"></div>
+      <div class="mock-line"></div>
+      <div class="mock-products">
+        <div class="mock-product"></div>
+        <div class="mock-product"></div>
+        <div class="mock-product"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <div class="project-info">
+        <h3>KAYZ Fashion</h3>
+        <p>
+          A modern fashion website with product
+          categories and customer enquiries.
+        </p>
+        <span class="project-type">WEB DEVELOPMENT</span>
+      </div>
+    </div>
+
+    <div class="project">
+      
+<div class="project-visual">
+  <div class="mock-window">
+    <div class="mock-top">
+      <span class="mock-dot"></span>
+      <span class="mock-dot"></span>
+      <span class="mock-dot"></span>
+    </div>
+
+    <div class="mock-content">
+      <div class="mock-title">KAYZ RESTAURANT</div>
+      <div class="mock-line"></div>
+      <div class="mock-line"></div>
+      <div class="mock-button">VIEW MENU</div>
+      <div class="mock-products">
+        <div class="mock-product"></div>
+        <div class="mock-product"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <div class="project-info">
+        <h3>KAYZ Restaurant</h3>
+        <p>
+          A restaurant website featuring a digital
+          menu and ordering enquiries.
+        </p>
+        <span class="project-type">WEB DEVELOPMENT</span>
+      </div>
+    </div>
+
+    <div class="project">
+      
+<div class="project-visual">
+  <div class="mock-window">
+    <div class="mock-top">
+      <span class="mock-dot"></span>
+      <span class="mock-dot"></span>
+      <span class="mock-dot"></span>
+    </div>
+
+    <div class="mock-content">
+      <div class="mock-title">KAYZ AI ASSISTANT</div>
+      <div class="mock-chat">
+        Hello! How can I help you today?
+      </div>
+      <div class="mock-chat reply">
+        I want to know about your services.
+      </div>
+      <div class="mock-chat">
+        Certainly! Here's what we offer.
+      </div>
+    </div>
+  </div>
+</div>
+
+      <div class="project-info">
+        <h3>KAYZ AI Assistant</h3>
+        <p>
+          An AI-powered assistant concept designed
+          to answer customer questions.
+        </p>
+        <span class="project-type">AI SOLUTIONS</span>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="contact" id="contact">
+
+  <div class="contact-tag">LET'S WORK TOGETHER</div>
+
+  <h2>Ready to <span>Grow?</span></h2>
+
+  <p>
+    Have a business that needs a website,
+    AI assistant or automation solution?
+    Let's discuss your next project.
+  </p>
+
+  <div class="contact-links">
+
+    <a
+      href="mailto:kayzdigital81@gmail.com"
+      class="btn">
+      Email Us
+    </a>
+
+    
+
+<a
+  href="https://wa.me/2348081243846?text=Hello%20KAYZ%20Digital!%20I%20am%20interested%20in%20your%20services."
+  class="email-btn"
+  target="_blank"
+  rel="noopener noreferrer">
+  Chat With Us on WhatsApp
+</a>
+
+
+
+  </div>
+
+  <small>
+    Email: kayzdigital81@gmail.com
+  </small>
+
+</section>
+
+  
+<footer>
+
+  <div class="footer-content">
+
+    <div class="footer-brand">
+      <h2>KAYZ<span>.</span> DIGITAL</h2>
+
+      <p>
+        We build modern websites and intelligent
+        AI solutions to help businesses grow.
+      </p>
+    </div>
+
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="footer-links">
+      <h3>Contact Us</h3>
+
+      <a href="mailto:kayzdigital81@gmail.com">
+        Email Us
+      </a>
+
+      <a href="https://wa.me/2348081243846">
+        WhatsApp
+      </a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 KAYZ Digital. All rights reserved.
+    <br><br>
+    We Build. You Grow.
+  </div>
+
+</footer>
+
+
+</body>
+</html>
